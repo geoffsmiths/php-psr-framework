@@ -11,7 +11,7 @@
     "version": "1.0.0",
     "type": "library",
     "require": {
-        "twig/twig": "2.0",
+        "twig/twig": "3.0",
         "mlaphp/mlaphp": "^1.1"
     },
     "require-dev": {
