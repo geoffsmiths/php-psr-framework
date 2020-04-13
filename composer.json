@@ -1,0 +1,27 @@
+{
+    "name": "geoffsmiths/php-psr-framework",
+    "authors": [
+        {
+            "name": "Jeffrey Schmitz",
+            "email": "geoffsmiths1981@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "description": "A tiny PSR MVC framework. Router and Repository included",
+    "version": "1.0.0",
+    "type": "library",
+    "require": {
+        "twig/twig": "2.0",
+        "mlaphp/mlaphp": "^1.1"
+    },
+    "require-dev": {
+        "php-di/php-di": "^6.1",
+        "larapack/dd": "1.*",
+        "doctrine/annotations": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/app"
+        }
+    }
+}
