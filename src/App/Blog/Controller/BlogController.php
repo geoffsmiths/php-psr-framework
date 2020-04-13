@@ -24,8 +24,8 @@ class BlogController extends CoreController
         ]));
 
         try {
-            $found = $repository->findById($blogId);
-            dd($found);
+            $blog = $repository->findById($blogId);
+            $this->render('blog/index.html.twig', compact('blog'));
         } catch (OutOfBoundsException $e) {
             echo $e->getMessage();
         }
