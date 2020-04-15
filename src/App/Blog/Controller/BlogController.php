@@ -2,30 +2,38 @@
 
 namespace App\Blog\Controller;
 
-use App\Blog\Repository\BlogRepository;
-use App\Blog\Repository\Domain\Blog;
-use App\Blog\Repository\Domain\BlogStatus;
+use App\Blog\Command\BlogDraft;
 use App\Core\Controller\CoreController;
 use App\Core\Repository\OutOfBoundsException;
 use App\Core\Service\View\View;
+use DI\FactoryInterface;
+use Mlaphp\Request;
 
 class BlogController extends CoreController
 {
+    /**
+     * @var BlogDraft
+     */
+    private $blogDraft;
+
+    public function __construct(
+        Request $request,
+        FactoryInterface $factory,
+        BlogDraft $blogDraft
+    ) {
+        parent::__construct($request, $factory);
+
+        $this->blogDraft = $blogDraft;
+    }
+
     public function index()
     {
-        /** @var BlogRepository $repository */
-        $repository = $this->factory->make(BlogRepository::class);
-        $blogId = $repository->generateId();
-
-        $repository->save(Blog::fromState([
-            'id' => $blogId->toInt(),
-            'name' => 'Our first blog',
-            'description' => 'This is our blog description',
-            'status' => BlogStatus::STATE_DRAFT
-        ]));
-
         try {
-            $blog = $repository->findById($blogId);
+            $blog = $this->blogDraft->save(
+                'Our first blog',
+                'This is our blog description'
+            );
+
             return View::render('blog/index.html.twig', compact('blog'));
         } catch (OutOfBoundsException $e) {
             return $e->getMessage();
