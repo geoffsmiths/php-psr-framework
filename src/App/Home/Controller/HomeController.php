@@ -3,11 +3,12 @@
 namespace App\Home\Controller;
 
 use App\Core\Controller\CoreController;
+use App\Core\Service\View\View;
 
 class HomeController extends CoreController
 {
     public function index()
     {
-        $this->render('home/home.html.twig');
+        return View::render('home/home.html.twig');
     }
 }

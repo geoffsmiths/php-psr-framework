@@ -7,6 +7,7 @@ use App\Blog\Repository\Domain\Blog;
 use App\Blog\Repository\Domain\BlogStatus;
 use App\Core\Controller\CoreController;
 use App\Core\Repository\OutOfBoundsException;
+use App\Core\Service\View\View;
 
 class BlogController extends CoreController
 {
@@ -25,14 +26,14 @@ class BlogController extends CoreController
 
         try {
             $blog = $repository->findById($blogId);
-            $this->render('blog/index.html.twig', compact('blog'));
+            return View::render('blog/index.html.twig', compact('blog'));
         } catch (OutOfBoundsException $e) {
-            echo $e->getMessage();
+            return $e->getMessage();
         }
     }
 
     public function item(int $id)
     {
-        echo $id;
+        return $id;
     }
 }

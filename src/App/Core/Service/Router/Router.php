@@ -66,7 +66,7 @@ class Router
         }
 
         $class = $this->factory->make($className);
-        $class->$method(...$methodArguments);
+        echo $class->$method(...$methodArguments);
     }
 
     /**
