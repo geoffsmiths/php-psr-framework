@@ -8,12 +8,15 @@ Available mechanisms:
 
 In this readme I show how to add routes and a controller for creating a blog.
 
-### Cache Configuration
+## Installation
 
-This framework is using several packages and it is required to have a couple of
+- Composer should be installed on your system
+- From the root directory type `composer install`
+
+This framework uses several packages and it is required to have a couple of
 folders in place to store cache:
 
-From the root directory, you need to add 
+From the root directory, you need to add the following folders
 - `../var/cache` 
 - `../var/twigcache`
 
