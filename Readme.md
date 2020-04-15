@@ -52,25 +52,18 @@ For an example of how to use the BlogRepository, take a look at `App\Blog\Contro
 
 ### How to show the view
 
-This framework comes with Twig 3.0. To configure Twig to be able to parse your template,
-you need to tell Twig where to look at. For Blogs, the templates are stored here: `App\Blog\Resource\views\blog`
+This framework comes with Twig 3.0. All templates are hosted in the root /views.
 
-Twig knows where to look for because the path of where the views are stored is configured here:
+If you would like to define your own paths where Twig should look for views, the configuration is stored here:
 `App\Core\Resource\twig\paths.php`:
 
-```php
-return [
-    __DIR__ . '/../../../blog/resource/views',
-];
-```
-
-As you can see, there already is a template created for you: `App\Blog\Resource\views\blog\index.html.twig`.
+As you can see, there already is a template created for you: `/views/blog/index.html.twig`.
 
 This template is called by the BlogController:
 ```php
 try {
     $blog = $repository->findById($blogId);
-    $this->render('blog/index.html.twig', compact('blog'));
+    return View::render('blog/index.html.view', compact('blog'));
 } catch (OutOfBoundsException $e) {
     echo $e->getMessage();
 }
