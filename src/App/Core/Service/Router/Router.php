@@ -76,8 +76,11 @@ class Router
     {
         $uri = $this->request->server['REQUEST_URI'];
 
-        // strip leading /
-        $uri = mb_substr($uri, 1);
+        if (strlen($uri) > 1) {
+            // strip leading /
+            $uri = mb_substr($uri, 1);
+        }
+
         return $uri;
     }
 
