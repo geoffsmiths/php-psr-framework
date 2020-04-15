@@ -1,1 +1,20 @@
-Homepage
+{% extends ('layout/base.html.twig') %}
+
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+    <div class="center-horizontal">
+        <div class="center-vertical">
+            <h1 class="center">PHP PSR Framework <span class="tag">1.0</span></h1>
+            <p class="center">A simple framework based on PHP with PHP Standard Recommendations (PSR) applied to it.</p>
+            <p class="center">No hassle on learning the code. Feel free to adjust code to your needs and requirements.</p>
+            <p class="center">-= A Simple and effective MVC =-</p>
+            <hr>
+            <p class="center payoff">
+                PSR-0 to PSR-2 compliant | Twig templating | PHP best practices
+            </p>
+        </div>
+    </div>
+{% endblock %}

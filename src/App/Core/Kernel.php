@@ -14,10 +14,8 @@ class Kernel
 
         try {
             # let the router do the magic
-            $router = $container->make(Router::class);
-            $router->load();
+            ($container->make(Router::class))->load();
 
-            
         } catch(Throwable $e) {
             echo $e->getMessage();
         }
