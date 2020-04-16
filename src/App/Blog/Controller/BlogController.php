@@ -6,8 +6,6 @@ use App\Blog\Command\BlogDraft;
 use App\Core\Controller\CoreController;
 use App\Core\Repository\OutOfBoundsException;
 use App\Core\Service\View\View;
-use DI\FactoryInterface;
-use Mlaphp\Request;
 
 class BlogController extends CoreController
 {
@@ -16,13 +14,8 @@ class BlogController extends CoreController
      */
     private $blogDraft;
 
-    public function __construct(
-        Request $request,
-        FactoryInterface $factory,
-        BlogDraft $blogDraft
-    ) {
-        parent::__construct($request, $factory);
-
+    public function __construct(BlogDraft $blogDraft)
+    {
         $this->blogDraft = $blogDraft;
     }
 

@@ -8,20 +8,14 @@ use Mlaphp\Request;
 class CoreController
 {
     /**
+     * @Inject
      * @var Request
      */
     protected $request;
 
     /**
+     * @Inject
      * @var FactoryInterface
      */
     protected $factory;
-
-    public function __construct(
-        Request $request,
-        FactoryInterface $factory
-    ) {
-        $this->request = $request;
-        $this->factory = $factory;
-    }
 }
